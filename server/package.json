@@ -8,7 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node backend/index.js",
+    "build": "npm install"
   },
   "dependencies": {
     "cors": "^2.8.6",
