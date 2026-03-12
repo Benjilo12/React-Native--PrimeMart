@@ -19,6 +19,7 @@ import Button from "@/components/ui/Button";
 import Toast from "react-native-toast-message";
 import { supabase } from "@/lib/supabase";
 import axios from "axios";
+import { BASE_URL } from "@/config";
 
 const CartScreen = () => {
   const router = useRouter();
@@ -68,15 +69,11 @@ const CartScreen = () => {
         price: total,
         email: user?.email,
       };
-      const response = await axios.post(
-        "http://10.0.2.2:8000/checkout",
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+      const response = await axios.post(`${BASE_URL}/checkout`, payload, {
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+      });
       const { paymentIntent, ephemeralKey, customer } = response.data;
       if (!paymentIntent || !ephemeralKey || !customer) {
         throw new Error("Missing required Stripe data from server");
