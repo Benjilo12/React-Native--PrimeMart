@@ -15,7 +15,7 @@ const { width } = Dimensions.get("window");
 export default function Banner() {
   const router = useRouter();
   const handleShopNow = () => {
-    router.push("/(tabs)/shop");
+    router.push("/(tabs)/Shop");
   };
   return (
     <View style={styles.container}>

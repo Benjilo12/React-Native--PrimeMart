@@ -6,9 +6,7 @@ import AppColors from "@/constants/theme";
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <SafeAreaView style={styles.safeView}>
-      <View style={styles.container}>
-        <Text>{children}</Text>
-      </View>
+      <View style={styles.container}>{children}</View>
     </SafeAreaView>
   );
 };

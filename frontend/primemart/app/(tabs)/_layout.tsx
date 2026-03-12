@@ -28,7 +28,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="shop"
+        name="Shop"
         options={{
           title: "Shop",
           tabBarIcon: ({ color }) => (
@@ -47,15 +47,35 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="Search"
-        // options={{ href: null, tabBarStyle: { display: "none" } }}
+        options={{ href: null, tabBarStyle: { display: "none" } }}
       />
       <Tabs.Screen
         name="Favourite"
-        // options={{ href: null, tabBarStyle: { display: "none" } }}
+        options={{ href: null, tabBarStyle: { display: "none" } }}
       />
       <Tabs.Screen
         name="Cart"
-        // options={{ href: null, tabBarStyle: { display: "none" } }}
+        options={{ href: null, tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="product/[id]"
+        options={{ href: null, tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="Signup"
+        options={{ href: null, tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="Login"
+        options={{ href: null, tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="orders"
+        options={{ href: null, tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="payment"
+        options={{ href: null, tabBarStyle: { display: "none" } }}
       />
     </Tabs>
   );

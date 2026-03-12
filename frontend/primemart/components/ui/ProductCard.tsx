@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   StyleProp,
   StyleSheet,
@@ -10,6 +11,14 @@ import {
 import React from "react";
 import { Product } from "@/type";
 import AppColors from "@/constants/theme";
+import Button from "./Button";
+import Toast from "react-native-toast-message";
+import { useRouter } from "expo-router";
+import Rating from "./Rating";
+import { useCartStore } from "@/store/cartStore";
+import { useFavoritesStore } from "@/store/favouriteStore";
+import { AntDesign } from "@expo/vector-icons";
+import Feather from "@expo/vector-icons/Feather";
 
 interface ProductCardProps {
   product: Product;
@@ -22,9 +31,46 @@ const ProductCard: React.FC<ProductCardProps> = ({
   compact,
   customStyle,
 }) => {
-  const { id, title, price, category, image } = product;
+  const { id, title, price, category, image, rating } = product;
+
+  const router = useRouter();
+
+  const { addItem } = useCartStore();
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
+  const isFav = isFavorite(id);
+
+  // Handle add to cart action
+  const handleAddToCart = () => {
+    // Implement add to cart functionality
+
+    addItem(product, 1);
+    Toast.show({
+      type: "success",
+      text1: "Added to Cart",
+      text2: `${title} has been added to your cart.`,
+      visibilityTime: 2000,
+    });
+  };
+
+  // Implement navigation to product details
+  const handleProductRoute = (e: any) => {
+    // Implement navigation to product details
+    router.push({ pathname: "/product/[id]", params: { id: product.id } });
+  };
+
+  const handleToggleFavorite = () => {
+    toggleFavorite(product);
+    Toast.show({
+      type: "success",
+      text1: "Added to Favourite",
+      text2: `${title} has been added to favourite.`,
+      visibilityTime: 2000,
+    });
+  };
+
   return (
     <TouchableOpacity
+      onPress={handleProductRoute}
       style={[styles.card, compact && styles.compactCard, customStyle]}
       activeOpacity={0.8}
     >
@@ -35,6 +81,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
           resizeMode="contain"
         />
       </View>
+      <TouchableOpacity
+        onPress={handleToggleFavorite}
+        style={[styles.favoriteButton, { borderWidth: isFav ? 1 : 0 }]}
+      >
+        <Feather
+          name="heart"
+          size={16}
+          color={isFav ? AppColors.error : AppColors.gray[400]}
+        />
+      </TouchableOpacity>
       <View style={styles.content}>
         <Text style={styles.category}>{category}</Text>
         <Text
@@ -45,7 +101,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
           {title}
         </Text>
         <View style={styles.footer}>
-          <Text style={styles.price}>${price.toFixed(2)}</Text>
+          <View>
+            <Text style={[styles.price, !compact && { marginBottom: 7 }]}>
+              ${price.toFixed(2)}
+            </Text>
+
+            <View style={!compact && { marginBottom: 7 }}>
+              <Rating size={12} rating={rating?.rate} count={rating?.count} />
+            </View>
+
+            {/* <Text style={[styles.ratingText, !compact && { marginBottom: 7 }]}>
+              ratings:
+              {rating?.rate.toFixed(1)}/{`(${rating?.count})`}
+            </Text> */}
+          </View>
+          {!compact && (
+            <Button
+              onPress={handleAddToCart}
+              title="Add to Cart"
+              size="small"
+              variant="outline"
+            />
+          )}
         </View>
       </View>
     </TouchableOpacity>
@@ -93,7 +170,7 @@ const styles = StyleSheet.create({
     height: 32,
     alignItems: "center",
     justifyContent: "center",
-    borderColor: AppColors.warning,
+    borderColor: AppColors.error,
   },
   content: {
     padding: 12,
@@ -110,6 +187,11 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: AppColors.text.primary,
     marginBottom: 8,
+  },
+  ratingText: {
+    textTransform: "capitalize",
+    color: AppColors.gray[600],
+    fontSize: 12,
   },
   footer: {
     justifyContent: "space-between",
