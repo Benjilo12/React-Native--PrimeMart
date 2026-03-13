@@ -128,7 +128,7 @@ export default function HomeScreen() {
           <View style={styles.newestSection}>
             <View style={styles.sectionHeader}>
               <Text style={styles.sectionTitle}>Newest Arrivals</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("/(tabs)/Shop")}>
                 <Text style={styles.seeAllText}>See All</Text>
               </TouchableOpacity>
             </View>

@@ -285,7 +285,7 @@ export default ShopScreen;
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: Platform.OS === "android" ? 15 : 0,
+    marginTop: Platform.OS === "android" ? 10 : 0,
     paddingBottom: 16,
     backgroundColor: AppColors.background.primary,
     borderBottomWidth: 1,

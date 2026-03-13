@@ -99,7 +99,7 @@ const SingleProductScreen = () => {
   return (
     <View
       style={{
-        paddingTop: 30,
+        paddingTop: 0,
         position: "relative",
         backgroundColor: AppColors.background.primary,
       }}
@@ -126,7 +126,7 @@ const SingleProductScreen = () => {
             />
           </View>
           <Text style={styles.price}>${product?.price.toFixed(2)} </Text>
-          <View style={styles.divider} />
+          <View />
           <Text style={styles.descriptionTitle}>Description</Text>
           <Text style={styles.description}>{product?.description}</Text>
           <View style={styles.quantityContainer}>
@@ -191,13 +191,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   productImage: {
-    width: "80%",
-    height: "80%",
+    width: "70%",
+    height: "70%",
   },
   productInfo: {
     paddingHorizontal: 24,
-    paddingBottom: 120,
-    paddingTop: 10,
+    paddingBottom: 100,
+    paddingTop: 3,
     backgroundColor: AppColors.background.secondary,
   },
   category: {
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "Inter-Bold",
-    fontSize: 24,
+    fontSize: 22,
     color: AppColors.text.primary,
     marginBottom: 8,
   },
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 40,
+    marginBottom: 85,
   },
   quantityTitle: {
     fontFamily: "Inter-SemiBold",
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    bottom: 70,
+    bottom: 50,
     left: 0,
     right: 0,
     backgroundColor: AppColors.background.primary,
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     borderTopColor: AppColors.gray[200],
     paddingHorizontal: 24,
     paddingVertical: 16,
-    paddingBottom: 32,
+    paddingBottom: 70,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

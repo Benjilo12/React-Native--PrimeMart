@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   headerView: {
-    paddingTop: 10,
+    paddingTop: 0,
     borderBottomWidth: 1,
     borderBottomColor: AppColors.gray[200],
     flexDirection: "row",
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   header: {
-    paddingBottom: 16,
+    paddingBottom: 10,
   },
 
   itemCount: {
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   summaryContainer: {
-    paddingVertical: 25,
+    paddingVertical: 15,
     borderTopWidth: 1,
     borderTopColor: AppColors.gray[200],
     marginBottom: 50,
@@ -247,14 +247,14 @@ const styles = StyleSheet.create({
     color: AppColors.primary[600],
   },
   checkoutButton: {
-    marginTop: 16,
-    marginBottom: 7,
+    marginTop: 2,
+    marginBottom: 70,
   },
   alertView: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 10,
+    marginBottom: 50,
   },
   alertText: {
     fontWeight: "500",
