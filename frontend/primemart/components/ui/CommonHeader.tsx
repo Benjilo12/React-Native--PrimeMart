@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    backgroundColor: AppColors.accent[500],
+    backgroundColor: AppColors.accent[400],
     paddingTop: 25,
     zIndex: 10,
     paddingVertical: 10,
-    marginTop: Platform.OS === "android" ? 5 : 0,
+    marginTop: Platform.OS === "android" ? 0 : 0,
   },
   backButton: {
     width: 40,

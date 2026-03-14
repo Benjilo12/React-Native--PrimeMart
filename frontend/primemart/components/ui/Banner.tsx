@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     marginBottom: 20,
     position: "relative",
+    marginTop: 15,
   },
   bannerImage: {
     width: "100%",

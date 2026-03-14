@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderTopWidth: 1,
     borderTopColor: AppColors.gray[200],
-    marginBottom: 50,
+    marginBottom: 10,
   },
   summaryRow: {
     flexDirection: "row",
@@ -248,13 +248,13 @@ const styles = StyleSheet.create({
   },
   checkoutButton: {
     marginTop: 2,
-    marginBottom: 70,
+    marginBottom: 20,
   },
   alertView: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 50,
+    marginBottom: 20,
   },
   alertText: {
     fontWeight: "500",

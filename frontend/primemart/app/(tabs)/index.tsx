@@ -71,81 +71,86 @@ export default function HomeScreen() {
     );
   }
   return (
-    <View style={styles.wrapper}>
-      <HomeHeader />
+    <SafeAreaView>
+      <View style={styles.wrapper}>
+        <HomeHeader />
 
-      <View style={styles.contentContainer}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.scrollContainerView}
-        >
-          <Banner />
-          {/* Categories Section */}
-          <View style={styles.categoriesSection}>
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Categories</Text>
-            </View>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {categories?.map((category) => (
-                <TouchableOpacity style={styles.categoryButton} key={category}>
-                  <AntDesign
-                    name="tag"
-                    size={16}
-                    color={AppColors.primary[500]}
+        <View style={styles.contentContainer}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.scrollContainerView}
+          >
+            <Banner />
+            {/* Categories Section */}
+            <View style={styles.categoriesSection}>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Categories</Text>
+              </View>
+              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                {categories?.map((category) => (
+                  <TouchableOpacity
+                    style={styles.categoryButton}
+                    key={category}
                     onPress={() => navigateToCategory(category)}
-                  />
-                  <Text style={styles.categoryText}>
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                  </Text>
+                  >
+                    <AntDesign
+                      name="tag"
+                      size={16}
+                      color={AppColors.primary[500]}
+                    />
+                    <Text style={styles.categoryText}>
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+            {/* Featured Products Section */}
+            <View style={styles.featuredSection}>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Featured Products</Text>
+                <TouchableOpacity onPress={() => router.push("/(tabs)/Shop")}>
+                  <Text style={styles.seeAllText}>See All</Text>
                 </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </View>
-          {/* Featured Products Section */}
-          <View style={styles.featuredSection}>
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Featured Products</Text>
-              <TouchableOpacity>
-                <Text style={styles.seeAllText}>See All</Text>
-              </TouchableOpacity>
+              </View>
+              <FlatList
+                data={featuredProducts}
+                keyExtractor={(item) => item.id.toString()}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.featuredProductsContainer}
+                renderItem={({ item }) => {
+                  return (
+                    <View style={styles.featuredProductContainer}>
+                      <ProductCard product={item} compact />
+                    </View>
+                  );
+                }}
+              />
             </View>
-            <FlatList
-              data={featuredProducts}
-              keyExtractor={(item) => item.id.toString()}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.featuredProductsContainer}
-              renderItem={({ item }) => {
-                return (
-                  <View style={styles.featuredProductContainer}>
-                    <ProductCard product={item} compact />
+            {/* Newest Products Section */}
+            <View style={styles.newestSection}>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Newest Arrivals</Text>
+                <TouchableOpacity onPress={() => router.push("/(tabs)/Shop")}>
+                  <Text style={styles.seeAllText}>See All</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.productsGrid}>
+                {products?.map((product) => (
+                  <View key={product.id} style={styles.productContainer}>
+                    <ProductCard
+                      product={product}
+                      customStyle={{ width: "100%" }}
+                    />
                   </View>
-                );
-              }}
-            />
-          </View>
-          {/* Newest Products Section */}
-          <View style={styles.newestSection}>
-            <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Newest Arrivals</Text>
-              <TouchableOpacity onPress={() => router.push("/(tabs)/Shop")}>
-                <Text style={styles.seeAllText}>See All</Text>
-              </TouchableOpacity>
+                ))}
+              </View>
             </View>
-            <View style={styles.productsGrid}>
-              {products?.map((product) => (
-                <View key={product.id} style={styles.productContainer}>
-                  <ProductCard
-                    product={product}
-                    customStyle={{ width: "100%" }}
-                  />
-                </View>
-              ))}
-            </View>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -158,7 +163,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   scrollContainerView: {
-    paddingBottom: 300,
+    paddingBottom: 120,
   },
   container: {
     flex: 1,
