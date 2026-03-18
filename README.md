@@ -64,7 +64,9 @@ Payment intent integration
 
 
 ## Images
-![iamge alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/c46f84c0d29399256826b4e7fc7508fe2b12a70f/front.png)  
+https://app.eraser.io/workspace/jl6KXZy2smHwiewvfNRB?origin=share
+
+![iamge alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/1dac64514ae13f6508af00b0812b26bc705eb53f/prime.png)  
 
 
 
