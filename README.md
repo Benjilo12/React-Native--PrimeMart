@@ -2,4 +2,4 @@
 
 
 ## Images
-![iamge alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/c46f84c0d29399256826b4e7fc7508fe2b12a70f/front.png)  ![iamge alt]()
+![iamge alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/c46f84c0d29399256826b4e7fc7508fe2b12a70f/front.png)  ![iamge alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/e57ca44f6dcbf624e9ba85aef0a183d2dd2c6fea/allp.png) ![iamge alt]()
