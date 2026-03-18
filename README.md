@@ -9,5 +9,5 @@
 
 
 ## File Structure
-
-![image alt]()
+https://app.eraser.io/workspace/SshHl7WLUl7JeZxuBYDs?origin=share
+![image alt](https://github.com/Benjilo12/React-Native--PrimeMart/blob/67422236849ea05629e44df2dc2befbe851cba90/primemart.png)
